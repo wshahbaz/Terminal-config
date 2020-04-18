@@ -1,0 +1,215 @@
+export ZSH="/Users/wshahbaz/.oh-my-zsh"
+export NVM_DIR="$HOME/.nvm"
+export GOPATH="$HOME/.go"
+export PATH=/usr/local/bin:$PATH    #brew files recognition
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
+export PATH="/Users/wshahbaz/Library/Python/2.7/bin:$PATH"
+export PATH="$(go env GOPATH)/bin:$PATH"
+
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
+
+ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_CUSTOM="$XDG_CONFIG_HOME/terminal"  #use this path for aliases file
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+plugins=(copydir colored-man-pages)
+
+
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(rbenv init -)"                                      #init rbenx for use
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+#------------------ZSH CONFIGS-------------------
+# ---- options ----
+
+
+# ---- keys ----
+
+# ---- prompt ----
+
+#------------------COLORS-------------------
+
+#------------------POWERLEVEL-------------------
+    #default values
+    DEFAULT_FOREGROUND=159 DEFAULT_BACKGROUND=239 PROMPT_COLOR=172
+    DEFAULT_COLOR="clear"
+    # POWERLEVEL9K_MODE="nerdfont-complete"
+    POWERLEVEL9K_MODE="awesome-fontconfig"
+
+    #meta-level
+    POWERLEVEL9K_STATUS_VERBOSE=true
+    POWERLEVEL9K_DIR_SHORTEN_LENGTH=1
+    POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=false
+
+    POWERLEVEL9K_CONTEXT_ALWAYS_SHOW=true
+    POWERLEVEL9K_CONTEXT_ALWAYS_SHOW_USER=false
+
+    #seperators
+    POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR="%F{000}%f"
+    POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR="%F{000}%f" # 
+    POWERLEVEL9K_VCS_SHORTEN_STRATEGY="truncate_middle"
+
+    # POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON='▓▒░'
+    # POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON='░▒▓'
+    POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\UE0BC'
+    POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\UE0BA'
+
+    #prompt organization
+    POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+    POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
+    POWERLEVEL9K_STATUS_CROSS=true
+    POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+
+    POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX_ICON="%F{$PROMPT_COLOR}%f"
+    POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX_ICON="%F{$PROMPT_COLOR}➜ %f"
+
+    #order of prompt elements
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir dir_writable vcs)
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs time)
+    #additional prompt fields: nvm, pyenv, virtualenv, load, ram, custom_wifi_signal
+
+    #background colors
+    POWERLEVEL9K_VCS_CLEAN_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_VCS_CLEAN_FOREGROUND="010"
+    POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="011"
+    POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="011"
+    POWERLEVEL9K_DIR_HOME_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_DIR_HOME_FOREGROUND="158"
+    POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="158"
+    POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="158"
+    POWERLEVEL9K_DIR_ETC_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_DIR_ETC_FOREGROUND="158"
+    POWERLEVEL9K_DIR_NOT_WRITABLE_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_DIR_NOT_WRITABLE_FOREGROUND="158"
+    POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND="red"
+    POWERLEVEL9K_STATUS_OK_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
+    POWERLEVEL9K_STATUS_ERROR_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
+
+    #time element
+    POWERLEVEL9K_TIME_ICON="\uF017" # 
+    POWERLEVEL9K_TIME_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_TIME_FOREGROUND="183"
+
+    #command execution element
+    POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="$DEFAULT_BACKGROUND"
+    #POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="183"
+    POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+    POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=3
+
+    POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND="123"
+
+    #wifi signal element
+    # POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="zsh_wifi_signal"
+    # POWERLEVEL9K_CUSTOM_WIFI_SIGNAL_BACKGROUND="$DEFAULT_BACKGROUND"
+    # POWERLEVEL9K_CUSTOM_WIFI_SIGNAL_FOREGROUND="yellow"
+
+    #ram element
+    # POWERLEVEL9K_RAM_BACKGROUND="$DEFAULT_BACKGROUND"
+    # POWERLEVEL9K_RAM_FOREGROUND="blue"
+
+    #load element
+    # POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND="$DEFAULT_BACKGROUND"
+    # POWERLEVEL9K_LOAD_WARNING_BACKGROUND="$DEFAULT_BACKGROUND"
+    # POWERLEVEL9K_LOAD_NORMAL_BACKGROUND="$DEFAULT_BACKGROUND"
+    # POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND="cyan"
+    # POWERLEVEL9K_LOAD_WARNING_FOREGROUND="cyan"
+    # POWERLEVEL9K_LOAD_NORMAL_FOREGROUND="cyan"
+    # POWERLEVEL9K_LOAD_CRITICAL_VISUAL_IDENTIFIER_COLOR="red"
+    # POWERLEVEL9K_LOAD_WARNING_VISUAL_IDENTIFIER_COLOR="yellow"
+    # POWERLEVEL9K_LOAD_NORMAL_VISUAL_IDENTIFIER_COLOR="cyan"
+
+    #virtual env element
+    # POWERLEVEL9K_VIRTUALENV_BACKGROUND="$DEFAULT_BACKGROUND"
+    # POWERLEVEL9K_VIRTUALENV_FOREGROUND="cyan"
+
+    #nvm element
+    # POWERLEVEL9K_NVM_BACKGROUND="$DEFAULT_BACKGROUND"
+    # POWERLEVEL9K_NVM_FOREGROUND="green"
+
+    #pyenv element
+    # POWERLEVEL9K_PYENV_BACKGROUND="$DEFAULT_BACKGROUND"
+    # POWERLEVEL9K_PYENV_FOREGROUND="yellow"
+
+    POWERLEVEL9K_USER_DEFAULT_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_USER_SUDO_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_USER_ROOT_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_USER_DEFAULT_ICON="\uF415" # 
+    POWERLEVEL9K_USER_ROOT_ICON=$'\uFF03' # ＃
+
+    POWERLEVEL9K_CONTEXT_TEMPLATE="\uF109 %m"
+    POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="123"
+    POWERLEVEL9K_CONTEXT_SUDO_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_CONTEXT_SUDO_FOREGROUND="123"
+    POWERLEVEL9K_CONTEXT_REMOTE_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND="123"
+    POWERLEVEL9K_CONTEXT_REMOTE_SUDO_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_CONTEXT_REMOTE_SUDO_FOREGROUND="123"
+    POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND="123"
+
+    POWERLEVEL9K_HOST_LOCAL_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_HOST_REMOTE_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_HOST_LOCAL_ICON="\uF109 " # 
+    POWERLEVEL9K_HOST_REMOTE_ICON="\uF489 "  # 
+
+    POWERLEVEL9K_SSH_ICON="\uF489 "  # 
+    POWERLEVEL9K_SSH_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_SSH_FOREGROUND="212"
+    POWERLEVEL9K_OS_ICON_BACKGROUND="$DEFAULT_BACKGROUND"
+    POWERLEVEL9K_OS_ICON_FOREGROUND="212"
+
+#------------------ALIASES___________________
+
+
+#------------------FUNCTIONS-------------------
+# zsh_wifi_signal(){
+#         local output=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I)
+#         local airport=$(echo $output | grep 'AirPort' | awk -F': ' '{print $2}')
+#
+#         if [ "$airport" = "Off" ]; then
+#                 local color='%F{black}'
+#                 echo -n "%{$color%}Wifi Off"
+#         else
+#                 local ssid=$(echo $output | grep ' SSID' | awk -F': ' '{print $2}')
+#                 local speed=$(echo $output | grep 'lastTxRate' | awk -F': ' '{print $2/1000}')
+#                 local color='%F{yellow}'
+#
+#                 [[ $speed -gt 0.100 ]] && color='%F{white}'
+#                 [[ $speed -lt 0.050 ]] && color='%F{red}'
+#
+#                 echo -n "%{$color%}$speed GBps \uf1eb%{%f%}" # removed char not inmy PowerLine font
+#         fi
+# }
+
+#------------------FINAL---------------------
+source $ZSH/oh-my-zsh.sh
+
+
+
+
+
+
+
+
+
+
+
+
